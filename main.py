@@ -16,17 +16,16 @@ def word_count(text):
     return len(text.split())
 
 def char_count(text):
-    
-    pre = []
-    for letter in text.lower():
-        if letter.isalpha() and letter not in pre:
-            pre.append(letter)
-    pre = sorted(pre)
-    count = {letter: 0 for letter in pre}
-    for letter in text.lower():
+    count = {}
+    text = text.lower()
+    for letter in text: 
         if letter.isalpha():
-            count[letter] += 1
+            if letter in count:
+                count[letter] += 1
+            else:
+                count[letter] = 1
     return count
+    
                 
 
         
