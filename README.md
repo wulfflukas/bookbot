@@ -1,2 +1,2 @@
-# bookbot
-guided pro
+# BookBot is my first project!
+
