@@ -3,9 +3,13 @@ def main():
     text = get_text(book_path)
     count = word_count(text)
     char = char_count(text)
-    print(text)
-    print(count)
-    print(char)
+    sorted_list = sort_key(char)
+    print(f"--- Begin report of {book_path} ---")
+    print(f"{count} words found in document")
+    print()
+    for i in sorted_list:
+        print(f"The {i['char']}' character was found {i['num']} times")
+    print("--- End report ---")
     
     
     
@@ -25,6 +29,17 @@ def char_count(text):
             else:
                 count[letter] = 1
     return count
+def sort_value(count):
+    return count["num"]
+def sort_key(count):
+    sorted_list = []
+    for dik in count: 
+        sorted_list.append({"char": dik, "num": count[dik]})
+    sorted_list.sort(reverse=True, key=sort_key)
+    return sorted_list
+        
+        
+
     
                 
 
